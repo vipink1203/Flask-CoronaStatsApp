@@ -1,0 +1,2 @@
+# Flask-CoronaStatsApp
+Corona Stats
