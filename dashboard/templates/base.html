@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='master.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}">
     <meta charset="utf-8">
     <title>Dashboard</title>
+    <style>
+      body {
+        background: linear-gradient(90deg, #cc2b5e 0%, #753a88 43%, #fc6767 100%);
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="#" style="color: red;">CORONA STATS</a>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: red;">Countries Effected</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" style="color: rgb(105, 255, 5);">WHO Recommendations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('refresh') }}" style="color: rgb(105, 255, 5);">RefreshData</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('delete') }}" style="color: rgb(105, 255, 5);">DeleteData</a>
-            </li>
-          </ul>
-          <!-- <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Log In</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sign Out</a>
-            </li>
-          </ul> -->
-        </div>
-    </nav>
-  {% block content %}
-
-  {% endblock %}
-
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="{{ url_for('home') }}" style="color: red;">CORONA STATS</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('tableview') }}" style="color: red;">Countries Effected</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('cards') }}" style="color: red;">CardView</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#" style="color: rgb(105, 255, 5);">WHO Recommendations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('refresh') }}" style="color: rgb(105, 255, 5);">RefreshData</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('delete') }}" style="color: rgb(105, 255, 5);">DeleteData</a>
+          </li>
+        </ul>
+        <!-- <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#">Log In</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Sign Out</a>
+          </li>
+        </ul> -->
+      </div>
+  </nav>
+  {% block content%}
+  {% endblock content%}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </body>
 </html>

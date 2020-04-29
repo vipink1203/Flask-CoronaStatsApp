@@ -1,12 +1,15 @@
 import requests
 from datetime import datetime as dt, timedelta
+from heapq import nlargest
+
 
 response = requests.get('https://coronacache.home-assistant.io/corona.json')   
 # print json content 
 res = response.json()
 corona_list = []
+mc = []
 
-def stat():
+def allCountries():
     for country in res['features']:
         dict = {
             'Country' : str(country['attributes']['Country_Region']),

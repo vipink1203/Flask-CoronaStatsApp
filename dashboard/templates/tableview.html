@@ -1,0 +1,59 @@
+{% extends 'basetable.html' %}
+
+{% block content %}
+{% for mess in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss='alert' aria-label="Close" class="fade close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{mess}}
+</div>
+{% endfor %}
+    <div class="container">
+        <div class="table-wrapper">			
+            <div class="table-title">
+                <div class="row">
+					<div class="col-sm-6">
+						<h2>CoronaVirus Spread <b>Details</b></h2>
+					</div>
+                    <div class="col-sm-6">
+                        <div class="search-box">
+							<div class="input-group">								
+								<input type="text" id="search" class="form-control" placeholder="Search by Name">
+                                <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">Country</th>
+                        <th style="width: 22%;">Confirmed</th>
+                        <th>Active</th>
+                        <th>Recovered</th>
+                        <th>Deaths</th>
+                        <th>Last Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td> {{ item.country }} </td>
+                        <td> {{ item.confirmed }} </td>
+                        <td> {{ item.active }} </td>
+                        <td> {{ item.recovered }} </td>
+                        <td> {{ item.deaths }} </td>
+                        <td> {{ item.updated }} </td>
+                        <td>
+                            <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div> 
+{% endblock content %}                               		                                                        
